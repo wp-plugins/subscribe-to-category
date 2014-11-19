@@ -27,8 +27,8 @@ The following settings and features are available for the administrator in curre
 *   Theres a note when next scheduled event for sending e-mails to subscribers is running.
 *   Options for leave no trace - deletes post meta and subscribers created by this plugin.
 
-= What Translations are included? =
 
+= What Translations are included? =
 * Swedish
 * English
 ____
