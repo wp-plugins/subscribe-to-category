@@ -18,13 +18,14 @@ The HTML form is prepared for Bootstrap framework.
 Subscribers are saved as a custom post type with a possibillity to export(excel). Unsubscription needs to be confirmed by the subscriber.
 
 The following settings and features are available for the administrator in current version:
-* Change e-mail sender from default
-* Change the title/subject for e-mails
-* Turn CSS on/off
-* Export subscribers to Excel with a possibillity to filter by categories
-* Run the cron job manually so it will fire immediately
-* Theres a note when next scheduled event for sending e-mails to subscribers is running.
-* Options for leave no trace - deletes post meta and subscribers created by this plugin.
+
+*   Change e-mail sender from default
+*   Change the title/subject for e-mails
+*   Turn CSS on/off
+*   Export subscribers to Excel with a possibillity to filter by categories
+*   Run the cron job manually so it will fire immediately
+*   Theres a note when next scheduled event for sending e-mails to subscribers is running.
+*   Options for leave no trace - deletes post meta and subscribers created by this plugin.
 
 == Installation ==
 
