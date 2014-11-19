@@ -40,6 +40,12 @@ This section describes how to install the plugin and get it working.
 As Wordpress Cron is depending on that you have visits on your website you should set up a cron job on your server to hit http://yourdomain.com/wp-cron.php at a regular interval to make sure that WP Cron is running as expected. In current version of Subscribe to Category the WP Cron is running once every hour, that might be an option that is changeable in future versions. 
 Therefore a suggested interval for your server cron could be once every 5 minutes. 
 
+== What Translations are included? ==
+
+* Swedish
+* English
+____
+Have you translated this plugin to another language? Please send me your files to info@dcweb.nu and I will add them to the plugin.
 
 == Screenshots ==
 
@@ -47,13 +53,6 @@ Therefore a suggested interval for your server cron could be once every 5 minute
 2. With Bootstrap framework.
 3. Without Bootstrap framework, override and add your own css.
 
-= What Translations are included? =
-
-* Swedish
-* English
-
-____
-Have you translated this plugin to another language? Please send me your files to info@dcweb.nu and I will add them to the plugin.
 
 == Changelog ==
 
