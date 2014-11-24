@@ -19,6 +19,8 @@ class STC_Main {
 	/**
 	 * Initialize the plugin by setting localization and loading public scripts
 	 * and styles.
+	 *
+	 * @since  1.0.0
 	 */
 	private function __construct() {
 
@@ -31,10 +33,18 @@ class STC_Main {
 		// load public css
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 
+		// load admin css
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+
+		// load admin scripts
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+
 	}
 
 	/**
 	 * Single instance of this class.
+	 *
+	 * @since  1.0.0
 	 */
 	public static function get_instance() {
 
@@ -48,6 +58,8 @@ class STC_Main {
 
 	/**
 	 * Store options to an array
+	 *
+	 * @since  1.0.0
 	 */
 	private function set_options(){
 		$this->options = get_option( 'stc_settings');
@@ -55,6 +67,8 @@ class STC_Main {
 
 	/**
 	 * Return the plugin slug.
+	 *
+	 * @since  1.0.0
 	 */
 	public function get_plugin_slug() {
 		return $this->plugin_slug;
@@ -62,6 +76,8 @@ class STC_Main {
 
 	/**
 	 * Fired when the plugin is activated.
+	 *
+	 * @since  1.0.0
 	 */
 	public static function activate( $network_wide ) {
 
@@ -92,6 +108,8 @@ class STC_Main {
 
 	/**
 	 * Fired when the plugin is deactivated.
+	 *
+	 * @since  1.0.0
 	 */
 	public static function deactivate( $network_wide ) {
 
@@ -125,6 +143,8 @@ class STC_Main {
 	/**
 	 * Add some settings when plugin is activated
 	 * - Cron schedule
+	 *
+	 * @since  1.0.0
 	 */
 	private static function single_activate() {
 		
@@ -139,6 +159,8 @@ class STC_Main {
 	 * Remove some settings on deactivation
 	 * - delete options
 	 * - delete hook
+	 *
+	 * @since  1.0.0
 	 */
 	private static function single_deactivate() {
     global $wpdb;
@@ -181,6 +203,8 @@ class STC_Main {
 
 	/**
 	 * Get all blog ids of blogs
+	 *
+	 * @since  1.0.0
 	 */
 	private static function get_blog_ids() {
 		global $wpdb;
@@ -193,6 +217,8 @@ class STC_Main {
 
 	/**
 	 * Load the plugin text domain for translation
+	 *
+	 * @since  1.0.0
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( STC_TEXTDOMAIN, false, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' ); 
@@ -200,6 +226,8 @@ class STC_Main {
 
 	/**
 	 * Register and enqueue public style sheet
+	 *
+	 * @since  1.0.0
 	 */
 	public function enqueue_styles() {
 		$options = $this->options;
@@ -207,5 +235,37 @@ class STC_Main {
 		if( isset($options['exclude_css']) && $options['exclude_css'] == false ) // check options for css
 			wp_enqueue_style( 'stc-style', STC_PLUGIN_URL . '/css/stc-style.css', array() );
 	}
+
+
+	/**
+	* Register and enqueue admin style sheet
+	* 
+	* @since  1.1.0
+	*/
+	public function enqueue_admin_styles() {
+		wp_enqueue_style( 'stc-admin-style', STC_PLUGIN_URL . '/css/admin-style.css', array() );
+	}
+
+	/**
+	* Register and enqueue admin scripts
+	* 
+	* @since  1.1.0
+	*/
+	public function enqueue_admin_scripts() {
+
+    wp_register_script( 'back-end-script', STC_PLUGIN_URL . '/js/admin-script.js', array( 'jquery' ), false, true );
+  
+    // load stc back-end script
+    wp_enqueue_script( 'back-end-script' );
+
+    wp_localize_script( 'back-end-script', 'ajax_object', array( 
+      'ajaxurl'     => admin_url( 'admin-ajax.php' ),
+      'ajax_nonce'  => wp_create_nonce('ajax_nonce')
+      ) 
+    ); // setting ajaxurl and nonce 
+    		
+		
+	}
+
 
 }

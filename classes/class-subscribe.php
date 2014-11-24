@@ -23,13 +23,21 @@ if( class_exists( 'STC_Subscribe' ) ) {
     private $notice = array();
     private $settings = array();
     private $post_type = 'stc';
+    private $sleep_flag = 25;
 
+    /**
+     * Constructor
+     *
+     * @since  1.0.0
+     */
   	function __construct(){
   		$this->init();
   	}
 
     /**
      * Single instance of this class.
+     *
+     * @since  1.0.0
      */
     public static function get_instance() {
 
@@ -43,11 +51,12 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
   	/**
   	 * Init method
-  	 * @return [type] [description]
+     *
+     * @since  1.0.0 
+  	 * 
+     * @return [type] [description]
   	 */
   	private function init(){
-
-
 
       add_action( 'init', array( $this, 'register_post_type'), 99 );
       add_action( 'create_category', array( $this, 'update_subscriber_categories') );
@@ -71,6 +80,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Adding a newly created category to subscribers who subscribes to all categories
+     *
+     * @since  1.0.0
+     * 
      * @param $category_id The id for newly created category
      */
     public function update_subscriber_categories( $category_id ){
@@ -103,6 +115,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Method for printing unsubscription text on custom page
+     *
+     * @since  1.0.0
      */
     public function unsubscribe_html(){
       global $post;
@@ -121,7 +135,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Collecting data through _GET
-     * 
+     *
+     * @since  1.0.0
      */
     public function collect_get_data(){
 
@@ -149,6 +164,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
      * Unsubscribe user from subscription
      * 
      * @TODO: add contact email if something went wrong
+     *
+     * @since  1.0.0
      */
     private function unsubscribe_user(){
       global $wpdb;
@@ -182,6 +199,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Listen for every new post and update post meta if post type 'post'
+     *
+     * @since  1.0.0
+     * 
      * @param  string $old_status 
      * @param  string $new_status 
      * @param  object $post
@@ -202,6 +222,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Sending an email to a subscriber with a confirmation link to unsubscription
+     *
+     * @since  1.0.0
+     * 
      * @param  int $stc_id post id for subscriber
      * @return [type]         [description]
      */
@@ -244,6 +267,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Returns the content for email unsubscription
+     *
+     * @since  1.0.0
+     * 
      * @param  array $stc 
      * @return string
      */
@@ -260,8 +286,10 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Collect data from _POST for subscription
-     * @return string Notice to user
      *
+     * @since  1.0.0
+     * 
+     * @return string Notice to user
      */
   	public function collect_post_data(){
   		
@@ -345,6 +373,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
   	/**
   	 * Check if subscriber already exists
+     *
+     * @since  1.0.0
+     * 
   	 * @return int post_id
   	 */
   	private function subscriber_exists(){
@@ -362,6 +393,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
   	/**
   	 * Update user with selected categories if user exists, else add user as new user.
+     *
+     * @since  1.0.0
+     *  
   	 * @param  string $post_data currently not in use
   	 */
   	private function insert_or_update_subscriber( $post_data = '' ){
@@ -405,6 +439,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Save post for stc post_type from admin
+     *
+     * @since  1.0.0
      */
     public function save_post_stc( $post_id ) {
       global $post;
@@ -481,6 +517,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Display error in wordpress format as notice if exists
+     *
+     * @since  1.0.0
      */
     public function save_post_stc_error(){
 
@@ -497,7 +535,10 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
   	/**
   	 * Render html to subscribe to categories
-  	 * @return [type] [description]
+     *
+     * @since  1.0.0 
+  	 * 
+     * @return [type] [description]
      *
      * @todo add some filter 
   	 */
@@ -515,6 +556,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Adding jQuery to footer
+     *
+     * @since  1.0.0
      */
     public function add_script_to_footer(){
       ?>
@@ -558,6 +601,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
   	/**
   	 * Html for subscribe form
+     *
+     * @since  1.0.0
+     *  
   	 * @return [type] [description]
   	 */
   	public function html_render(){
@@ -646,6 +692,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * On the scheduled action hook, run a function.
+     *
+     * @since  1.0.0
      */
     public function stc_send_email() {
       global $wpdb;
@@ -679,10 +727,14 @@ if( class_exists( 'STC_Subscribe' ) ) {
       if(!empty( $outbox )){
         $this->send_notifier( $outbox );
       }
+
     }
 
     /**
      * Send notifier to subscribers
+     *
+     * @since  1.0.0
+     * 
      * @param  object $outbox
      */
     private function send_notifier( $outbox = '' ){
@@ -738,6 +790,7 @@ if( class_exists( 'STC_Subscribe' ) ) {
       $headers .= 'From: '. $website_name.' <'.$email_from.'>' . "\r\n";
 
       // loop through subscribers and send notice
+      $i = 1; // loop counter
       foreach ($emails as $email ) {
 
         ob_start(); // start buffering and get content
@@ -753,6 +806,14 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
         wp_mail( $email['email'], $subject, $message, $headers );
 
+        // sleep 2 seconds once every 25 email to prevent blacklisting
+        if( $i == $sleep_flag ){
+          sleep(2); // sleep for two seconds, then proceed
+          $i = 1; // reset loop counter
+        }
+
+        $i++;
+
       }
 
       //update some postmeta that email is sent
@@ -766,6 +827,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
     /**
      * Render html to email. 
      * Setting limit to content as we still want the user to click and visit our site.
+     *
+     * @since  1.0.0
+     * 
      * @param  object $email
      */    
     private function email_html_content( $email ){
@@ -780,6 +844,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Cut a text string closest word on a given length.
+     *
+     * @since  1.0.0
+     * 
      * @param  string $string
      * @param  int $max_length
      * @return string
@@ -805,6 +872,9 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     /**
      * Get all subscribers with subscribed categories
+     *
+     * @since  1.0.0
+     * 
      * @return object Subscribers
      */
     private function get_subscribers(){
@@ -836,6 +906,8 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
   	/**
   	 * Register custom post type for subscribers
+     *
+     * @since  1.0.0 
   	 */
   	public function register_post_type(){
 

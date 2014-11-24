@@ -21,6 +21,8 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Constructor
+     *
+     * @since  1.0.0
      */
     public function __construct() {
 
@@ -28,8 +30,9 @@ if( class_exists( 'STC_Settings' ) ) {
       if( is_admin() ) {    
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'register_settings' ) );
-        add_action( 'init', array( $this, 'get_requests'), 999 ); // $_GET
-        add_action( 'init', array( $this, 'get_transients'), 99 ); // transients
+
+        // Ajax call for sendings emails manually
+        add_action( 'wp_ajax_force_run', array( $this, 'force_run' ) );
 
       }
 
@@ -37,85 +40,28 @@ if( class_exists( 'STC_Settings' ) ) {
     }
 
     /**
-     * Getting $_GET requests
-     */
-    public function get_requests(){
-
-      // Bypass scheduled event and run event manually
-      if( isset( $_GET['action'] ) && $_GET['action'] == 'stc-force-run' ){
-
-        // security check
-        if( !current_user_can('manage_options') ) 
-          die(__( 'You are not allowed to run this action.', STC_TEXTDOMAIN ));
-
-        // check nonce
-        check_admin_referer( 'stc_force_run');
-
-        $subscriber = STC_Subscribe::get_instance();
-        $subscriber->stc_send_email();
-
-        // Redirect to url for settings and print notice
-        $url = admin_url( 'options-general.php?page=stc-subscribe-settings' );
-        
-        // set transient for showing admin notice in settings
-        set_transient( 'stc_notice_id', '1', 3600 );
-        wp_redirect( $url );
-        exit;        
-
-      }
- 
-    }
-
-    /**
-     * Get transients 
-     */
-    public function get_transients(){
-
-      $notice = get_transient( 'stc_notice_id' );
-
-      // add action for admin_notices if there is a transient set
-      if( !empty( $notice ) ){
-        add_action( 'admin_notices', array( $this, 'stc_admin_notice' ) );
-      }
-
-      return false;
-    }
-
-
-    /**
-     * Prints out admin notice in settings
-     */
-    public function stc_admin_notice(){
-
-      $notice = $this->get_admin_notice( get_transient('stc_notice_id') );
-
-      $notice_class = 'updated';
-      if( get_transient('stc_notice_id') == 0 ){
-        $notice_class = 'error';
-      }
-
-      printf( '<div id="message" class="%s"><p><strong>%s</strong></p></div>', $notice_class, $notice );
-      delete_transient( 'stc_notice_id' );
-      
-    }
-
-    /**
-     * Returns messages to show in admin notice
+     * Ajax call for trigger send action manually
      * 
-     * @param  int $notice_id
-     * @return array with notice id
+     * @since  1.1.0
+     * 
+     * @return [type] [description]
      */
-    public function get_admin_notice( $notice_id ){
-      $notice = array(
-        __( 'Something went wrong when triggering scheduled event', STC_TEXTDOMAIN ),
-        __( 'Scheduled event successfully executed', STC_TEXTDOMAIN )
-      );
-      
-      return $notice[$notice_id];
+    public function force_run(){
+      check_ajax_referer( 'ajax_nonce', 'nonce' );
+  
+      $subscriber = STC_Subscribe::get_instance();
+      $subscriber->stc_send_email();
+
+      _e( 'Scheduled event successfully executed', STC_TEXTDOMAIN );
+
+      die();
     }
 
     /**
      * Add options page
+     * 
+     * @since  1.0.0
+     * 
      */
     public function add_plugin_page() {
       
@@ -141,6 +87,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Options page callback
+     *
+     * @since  1.0.0
+     * 
      */
     public function create_admin_page() {
 
@@ -159,10 +108,10 @@ if( class_exists( 'STC_Settings' ) ) {
             <tr>
               <td class="desc"><strong><?php _e( 'Schedule: ', STC_TEXTDOMAIN ); ?></strong> <?php _e('E-mail is scheduled to be sent once every hour.', STC_TEXTDOMAIN ); ?></td>
               <td class="desc"></td>
-              <td class="desc textright"><a href="<?php echo wp_nonce_url('options-general.php?page=stc-subscribe-settings&action=stc-force-run', 'stc_force_run');?>"> <?php _e( 'Click here to run this action right now', STC_TEXTDOMAIN ); ?></a></td>
+              <td class="desc textright"><div class="stc-force-run-action"><button type="button" id="stc-force-run" class="button button-primary"><?php _e( 'Click here to run this action right now', STC_TEXTDOMAIN ); ?></button></div></td>
             </tr>
             <tr>
-              <td class="desc" colspan="3"><?php printf( __('Next run is going to be <strong>%s</strong> and will include %s posts.', STC_TEXTDOMAIN ), $next_run, $this->get_posts_in_que() ); ?></td>
+              <td class="desc" colspan="3"><?php printf( __('Next run is going to be <strong>%s</strong> and will include %s posts.', STC_TEXTDOMAIN ), $next_run, '<span id="stc-posts-in-que">' . $this->get_posts_in_que() . '</span>' ); ?></td>
             </tr>
           </tbody>
         </table>
@@ -185,6 +134,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Get current posts in que to be sent
+     *
+     * @since  1.0.0
+     * 
      * @return int sum of posts
      */
     private function get_posts_in_que(){
@@ -208,6 +160,8 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Returns the time in seconds until a specified cron job is scheduled.
+     *
+     * @since  1.0.0
     */
     public function get_next_cron_time( $cron_name ){
 
@@ -223,6 +177,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Register and add settings
+     *
+     * @since  1.0.0
+     * 
      */
     public function register_settings(){        
 
@@ -293,6 +250,13 @@ if( class_exists( 'STC_Settings' ) ) {
 
     }
 
+    /**
+     * Print outs text for deactivation info
+     *
+     * @since  1.0.0
+     * 
+     * @return [type] [description]
+     */
     public function section_deactivation_info(){
       ?>
       <p><?php _e('The plugin will remove all data in database created by this plugin but there is an option regarding subscribers', STC_TEXTDOMAIN ); ?></p>
@@ -301,6 +265,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Sanitize setting fields
+     *
+     * @since  1.0.0
+     * 
      * @param array $input 
      */
     public function input_validate_sanitize( $input ) {
@@ -335,6 +302,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /** 
      * Printing section text
+     *
+     * @since  1.0.0
+     * 
      */
     public function print_section_info(){
       _e( 'Add your E-mail settings', STC_TEXTDOMAIN );
@@ -342,6 +312,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /** 
      * Get the settings option array and print one of its values
+     *
+     * @since  1.0.0
+     * 
      */
     public function stc_email_from_callback() {
       $default_email = get_option( 'admin_email' );
@@ -353,6 +326,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /** 
      * Get the settings option array and print one of its values
+     *
+     * @since  1.0.0
+     * 
      */
     public function stc_title_callback() {
       ?>
@@ -363,6 +339,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /** 
      * Get the settings option array and print one of its values
+     *
+     * @since  1.0.0
+     * 
      */
     public function stc_css_callback() { 
       $options['exclude_css'] = '';
@@ -378,6 +357,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /** 
      * Get the settings option array and print one of its values
+     *
+     * @since  1.0.0
+     * 
      */
     public function stc_remove_subscribers_callback() { 
       $options['deactivation_remove_subscribers'] = '';
@@ -393,6 +375,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Form for filtering categories on export to excel
+     *
+     * @since  1.0.0
+     * 
      */
     public function export_to_excel_form(){
       $categories = get_categories( array( 'hide_empty' => false ) ); 
@@ -425,6 +410,9 @@ if( class_exists( 'STC_Settings' ) ) {
 
     /**
      * Export method for excel
+     *
+     * @since  1.0.0
+     * 
      */
     public function export_to_excel(){
 
@@ -496,6 +484,9 @@ if( class_exists( 'STC_Settings' ) ) {
       
     /**
      * Method for cleaning data to excel
+     *
+     * @since  1.0.0
+     * 
      */
     public function clean_data_for_excel( &$str ) { 
       $str = iconv('UTF-8', 'ISO-8859-1', $str );

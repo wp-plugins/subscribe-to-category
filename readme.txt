@@ -3,7 +3,7 @@ Contributors: dansod
 Tags: subscribe to post, subscribe to category, subscribe to news, subscribe
 Requires at least: 3.9
 Tested up to: 4.0
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,10 @@ Therefore a suggested interval for your server cron could be once every 5 minute
 
 
 == Changelog ==
+
+= 1.1.0 =
+* Added php sleep() function to prevent sending all e-mails in the same scope. 
+* Using Ajax when send is manually triggered in back-end
 
 = 1.0.0 =
 * First release
