@@ -2,7 +2,7 @@
 Contributors: dansod
 Tags: subscribe to post, subscribe to category, subscribe to news, subscribe
 Requires at least: 3.9
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
