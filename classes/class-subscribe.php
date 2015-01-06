@@ -24,6 +24,7 @@ if( class_exists( 'STC_Subscribe' ) ) {
     private $settings = array();
     private $post_type = 'stc';
     private $sleep_flag = 25;
+    private $show_all_categories = true;
 
     /**
      * Constructor
@@ -54,9 +55,10 @@ if( class_exists( 'STC_Subscribe' ) ) {
      *
      * @since  1.0.0 
   	 * 
-     * @return [type] [description]
   	 */
   	private function init(){
+      // save settings to array
+      $this->settings = get_option( 'stc_settings' );
 
       add_action( 'init', array( $this, 'register_post_type'), 99 );
       add_action( 'create_category', array( $this, 'update_subscriber_categories') );
@@ -69,14 +71,43 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
 
   		add_shortcode( 'stc-subscribe', array( $this, 'stc_subscribe_render' ) );
-      add_action( 'transition_post_status', array( $this, 'new_post_submit' ), 10, 3 );
+      add_action( 'save_post', array( $this, 'save_post' ) );
 
       add_action( 'stc_schedule_email', array( $this, 'stc_send_email' ) );
 
-      // save settings to array
-      $this->settings = get_option( 'stc_settings' );
+      // adding checkbox to publish meta box if activated
+      if( $this->settings['resend_option'] == 1 )
+        add_action( 'post_submitbox_misc_actions', array( $this, 'resend_post_option' ) );
 
   	}
+
+    /**
+     * Adding checkbox to publish meta box with an option to resend a post 
+     *
+     * @since 1.2.0
+     * 
+     */
+    public function resend_post_option(){
+      global $post;
+      $stc_status = get_post_meta( $post->ID, '_stc_notifier_status', true );
+
+      // We wont show resend option on a post that hasn´t been sent
+      if( $stc_status != 'sent' )
+        return false;
+
+      $time_in_seconds_i18n = strtotime( date_i18n( 'Y-m-d H:i:s' ) ) + STC_Settings::get_next_cron_time( 'stc_schedule_email' );
+      $next_run = gmdate( 'Y-m-d H:i:s', $time_in_seconds_i18n ); 
+
+      ?>
+        <div class="misc-pub-section stc-section">
+          <span class="dashicons dashicons-groups"></span> <label><?php _e('Resend post to subscribers', STC_TEXTDOMAIN ); ?> <input id="stc-resend" type="checkbox" name="stc_resend"></label>
+          <div id="stc-resend-info" style="display:none;">
+            <p><i><?php printf( __( 'This post update will be re-sent to subscribers %s', STC_TEXTDOMAIN ), $next_run ); ?></i></p>
+          </div>
+        </div>
+      <?php
+    }
+
 
     /**
      * Adding a newly created category to subscribers who subscribes to all categories
@@ -198,25 +229,46 @@ if( class_exists( 'STC_Subscribe' ) ) {
     }
 
     /**
-     * Listen for every new post and update post meta if post type 'post'
+     * Save post hook to update post meta 
      *
-     * @since  1.0.0
+     * @since 1.2.0
      * 
-     * @param  string $old_status 
-     * @param  string $new_status 
-     * @param  object $post
+     * @param  int $post_id     Post ID
      */
-    public function new_post_submit( $old_status, $new_status, $post ){
+    public function save_post( $post_id ) {
 
-      // bail if not the correct post type
-      if( $post->post_type != 'post' )
+      // If this is just a revision, exit
+      if ( wp_is_post_revision( $post_id ) )
         return false;
 
-      // We wont send email notice if a post i updated
-      if( $new_status == 'new' ){
-        update_post_meta( $post->ID, '_stc_notifier_status', 'outbox' ); // updating post meta
+      // exit for bulk actions and auto-drafts
+      if(empty( $_POST )) 
+        return false;
+
+      // exit if not post type post
+      if( $_POST['post_type'] != 'post' )
+        return false;
+
+      // exit if we're doing an auto save  
+      if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+        return false; 
+
+      // if our current user can't edit this post, bail  
+      if( !current_user_can( 'edit_post' ) ) 
+        return false;  
+
+      $stc_status = get_post_meta( $post_id, '_stc_notifier_status', true );
+
+      if(empty( $stc_status )){
+        update_post_meta( $post_id, '_stc_notifier_status', 'outbox' ); // updating post meta
+      }else{
+
+        if( isset( $_POST['stc_resend'] ) && $_POST['stc_resend'] == 'on' ) {
+          update_post_meta( $post_id, '_stc_notifier_status', 'outbox' ); // updating post meta
+        }
+        
       }
-      
+
     }
 
 
@@ -542,11 +594,11 @@ if( class_exists( 'STC_Subscribe' ) ) {
      *
      * @todo add some filter 
   	 */
-  	public function stc_subscribe_render(){
+  	public function stc_subscribe_render( $atts ){
 
       //start buffering
   		ob_start();
-  		$this->html_render();
+  		$this->html_render( $atts );
   		$form = ob_get_contents();
   		ob_get_clean();
   		//$form = apply_filters( 'stc_form', $form, 'teststring' );
@@ -599,6 +651,68 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
     }
 
+    /**
+     * Filter to show categories by attribute 'category_in' in shortcode
+     * 
+     * @param  array  $cats_all All categories
+     * @param  string $cats_in  Categories entered in shortcode
+     * 
+     * @since 1.2.0
+     * 
+     * @return array            Array with categories to show
+     */
+    private function filter_categories_in( $cats_all = '', $cats_in = '' ){
+
+      if(empty( $cats_all ))
+        return false;
+
+      $cats_in = explode(',', str_replace(', ', ',', $cats_in ) );
+
+      $filtered_cats = array();
+      foreach( $cats_in as $cat_in ){
+        foreach ($cats_all as $cat ) {
+          if( mb_strtolower( $cat_in ) == mb_strtolower( $cat->name ) )
+            $filtered_cats[] = $cat;
+        }
+      }
+
+      return $filtered_cats;
+
+
+    }
+
+    /**
+     * Filter to exclude categories by attribute 'category_not_in' in shortcode
+     * 
+     * @param  array  $cats_all    All categories
+     * @param  string $cats_not_in Categories entered in shortcode
+     *
+     * @since 1.2.0
+     * 
+     * @return array                Array with categories to show
+     */
+    private function filter_categories_not_in( $cats_all = '', $cats_not_in = '' ){
+     
+      if(empty( $cats_all ))
+        return false;
+
+      $cats_not_in = explode(',', str_replace(', ', ',', $cats_not_in ) );        
+
+        $filtered_cats = $cats_all;
+          
+          foreach ($cats_all as $key => $cat ) {
+
+            foreach( $cats_not_in as $cat_not_in ){
+              if( mb_strtolower( $cat_not_in ) == mb_strtolower( $cat->name ) )
+                unset($filtered_cats[$key]);
+            }
+          
+        }
+
+        return $filtered_cats;
+ 
+    }
+
   	/**
   	 * Html for subscribe form
      *
@@ -606,16 +720,25 @@ if( class_exists( 'STC_Subscribe' ) ) {
      *  
   	 * @return [type] [description]
   	 */
-  	public function html_render(){
+  	public function html_render( $atts = false ){
+
+      extract( shortcode_atts( array(
+        'category_in' => false,
+        'category_not_in' => false,
+      ), $atts ));
 
       // add hook when we have a request to render html
   		add_action('wp_footer', array( $this, 'add_script_to_footer' ), 20);
-  		
-      
+  		      
       // getting all categories
       $args = array( 'hide_empty' => 0 );
   		$cats = get_categories( $args );
 
+      if( !empty( $category_in ) ){
+        $cats = $this->filter_categories_in( $cats, $category_in );
+      }elseif( !empty( $category_not_in ) ){
+        $cats = $this->filter_categories_not_in( $cats, $category_not_in );
+      }
 
       // if error store email address in field value so user dont need to add it again
   		if(!empty( $this->error)){
@@ -659,13 +782,16 @@ if( class_exists( 'STC_Subscribe' ) ) {
 
           <div class="stc-categories"<?php echo $post_stc_unsubscribe == 1 ? ' style="display:none;"' : NULL; ?>>
             <h3><?php _e('Categories', STC_TEXTDOMAIN ); ?></h3>
+            <?php if( $this->show_all_categories === true ) : ?>
             <div class="checkbox">
               <label>
                 <input type="checkbox" id="stc-all-categories" name="stc_all_categories" value="1">
                 <?php _e('All categories', STC_TEXTDOMAIN ); ?>
               </label>
             </div>
+            <?php endif; ?>
             <div class="stc-categories-checkboxes">
+            <?php if(! empty( $cats ) ) : ?>
     				<?php foreach ($cats as $cat ) : ?>
             <div class="checkbox">
       				<label>
@@ -674,6 +800,7 @@ if( class_exists( 'STC_Subscribe' ) ) {
       				</label>
             </div>
   				  <?php endforeach; ?>
+          <?php endif; ?>
           </div><!-- .stc-categories-checkboxes -->
           </div><!-- .stc-categories -->
 
@@ -802,6 +929,10 @@ if( class_exists( 'STC_Subscribe' ) ) {
         if( empty( $email_title ))
           $email_subject = $email['post']->post_title;
 
+        // add updated to title if its an update for post
+        if( $this->is_stc_resend( $email['post_id'] ) )
+          $email_subject = __('Update | ', STC_TEXTDOMAIN ) . $email_subject;
+
         $subject = '=?UTF-8?B?'.base64_encode( $email_subject ).'?=';
 
         wp_mail( $email['email'], $subject, $message, $headers );
@@ -819,9 +950,29 @@ if( class_exists( 'STC_Subscribe' ) ) {
       //update some postmeta that email is sent
       foreach ($outbox as $post ) {
         update_post_meta( $post->ID, '_stc_notifier_status', 'sent' );
-        update_post_meta( $post->ID, '_stc_notifier_sent_time', mysql2date( 'Y-m-d H:i:s', time() ) );
+        update_post_meta( $post->ID, '_stc_notifier_sent_time', date('Y-m-d H:i:s', current_time('timestamp') ) );
       }
         
+    }
+
+    /**
+     * Function to check if a post has been sent before
+     *
+     * @since 1.2.0
+     * 
+     * @param  int  $post_id    Post ID
+     * 
+     * @return boolean          True or false
+     */
+    private function is_stc_resend( $post_id = '' ){
+
+      $stc_status = get_post_meta( $post_id, '_stc_notifier_sent_time', true );
+
+      if(!empty( $stc_status ))
+        return true;
+
+      return false;
+
     }
 
     /**

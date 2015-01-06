@@ -10,3 +10,8 @@
 #stc-spinner{
 	float: left;
 }
+
+.stc-section span:before {
+    content: "\f307";
+    top: -1px;
+}

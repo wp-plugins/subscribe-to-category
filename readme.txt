@@ -3,7 +3,7 @@ Contributors: dansod
 Tags: subscribe to post, subscribe to category, subscribe to news, subscribe
 Requires at least: 3.9
 Tested up to: 4.1
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,8 @@ The following settings and features are available for the administrator in curre
 *   Run the cron job manually so it will fire immediately
 *   Theres a note when next scheduled event for sending e-mails to subscribers is running.
 *   Options for leave no trace - deletes post meta and subscribers created by this plugin.
+*   Option for re-send a post on update that has already been sent.
+*   Shortcode attributes for showing and hiding some categories from subscribe form. 
 
 
 = What Translations are included? =
@@ -43,6 +45,12 @@ This section describes how to install the plugin and get it working.
 3. Save your settings 'Settings > Subscribe'.
 4. Create a page and add shortcode [stc-subscribe] to display stc form subscription.
 
+= Shortcode Attributes =
+'category_in' - Use this attribute if you only want one or several categories to be available for subscription. Value to be entered is the name of the category.
+'category_not_in' - Use this attribute if you want to exclude categories to be available for subscription. Value to be entered is the name of the category.
+
+For both attributes you can use a comma sign to separate multiple categories, like [stc-subscribe category_in="news, article"].
+
 = Optionally but recommended =
 As Wordpress Cron is depending on that you have visits on your website you should set up a cron job on your server to hit http://yourdomain.com/wp-cron.php at a regular interval to make sure that WP Cron is running as expected. In current version of Subscribe to Category the WP Cron is running once every hour, that might be an option that is changeable in future versions. 
 Therefore a suggested interval for your server cron could be once every 5 minutes. 
@@ -52,9 +60,15 @@ Therefore a suggested interval for your server cron could be once every 5 minute
 1. Settings page.
 2. With Bootstrap framework.
 3. Without Bootstrap framework, override and add your own css.
-
+4. When resend post is enabled in settings there is a new option available when editing a post.
 
 == Changelog ==
+
+= 1.2.0 =
+* Possibillity to re-send a post on update that has already been sent. This option needs to be activated in the settings for the plugin.
+* Attribute 'category_in' added to shortcode to show only entered categories in the subscribe form. Multiple categories are separated by a comma sign.
+* Attribute 'category_not_in' added to shortcode to exclude categories in the subscribe form. Multiple categories are separated by a comma sign.
+
 
 = 1.1.0 =
 * Added php sleep() function to prevent sending all e-mails in the same scope. 

@@ -121,6 +121,7 @@ if( class_exists( 'STC_Settings' ) ) {
             // print out all hidden setting fields
             settings_fields( 'stc_option_group' );   
             do_settings_sections( 'stc-subscribe-settings' );
+            do_settings_sections( 'stc-resend-settings' );
             do_settings_sections( 'stc-style-settings' );
             do_settings_sections( 'stc-deactivation-settings' );
             submit_button(); 
@@ -208,6 +209,23 @@ if( class_exists( 'STC_Settings' ) ) {
         );
 
 
+        // Resend settings
+        add_settings_section(
+            'setting_resend_id', // ID
+            __( 'Resend post on update', STC_TEXTDOMAIN ), // Title
+            '', //array( $this, 'print_section_info' ), // Callback
+            'stc-resend-settings' // Page
+        );  
+
+        add_settings_field(
+            'stc_resend',
+            __( 'Resend:', STC_TEXTDOMAIN ),
+            array( $this, 'stc_resend_callback' ), // Callback
+            'stc-resend-settings', // Page
+            'setting_resend_id' // Section           
+        );        
+
+
         // Styleing settings
         add_settings_section(
             'setting_style_id', // ID
@@ -289,6 +307,10 @@ if( class_exists( 'STC_Settings' ) ) {
           $output['title'] = $input['title'];
         }
 
+        if( isset( $input['resend_option'] ) ){
+          $output['resend_option'] = $input['resend_option'];
+        }        
+
         if( isset( $input['exclude_css'] ) ){
           $output['exclude_css'] = $input['exclude_css'];
         }
@@ -336,6 +358,25 @@ if( class_exists( 'STC_Settings' ) ) {
         <p class="description"><?php _e( 'Enter e-mail subject for the e-mail notification, leave empty if you wish to use post title as email subject.', STC_TEXTDOMAIN ); ?></p>
         <?php
     }
+
+
+    /** 
+     * Get the settings option array and print one of its values
+     *
+     * @since  1.2.0
+     * 
+     */
+    public function stc_resend_callback() { 
+      $options['resend_option'] = '';
+      
+      if( isset( $this->options['resend_option'] ) )
+        $options['resend_option'] = $this->options['resend_option'];
+      ?>
+
+      <label for="resend_option"><input type="checkbox" value="1" id="resend_option" name="stc_settings[resend_option]" <?php checked( '1', $options['resend_option'] ); ?>><?php _e('Enable resend post option', STC_TEXTDOMAIN ); ?></label>
+      <p class="description"><?php _e('Gives an option on edit post (in the publish panel) to resend a post on update.', STC_TEXTDOMAIN ); ?></p>
+    <?php
+    }    
 
     /** 
      * Get the settings option array and print one of its values

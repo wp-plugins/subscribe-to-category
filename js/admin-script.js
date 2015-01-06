@@ -2,6 +2,16 @@
 
 	$(document).ready(function() {
 
+    $('#stc-resend').change( function() {
+      
+      if( $(this).is(':checked') ) {
+        $('#stc-resend-info').show();
+      } else {
+        $('#stc-resend-info').hide();
+      }
+
+    });
+
 		$('button#stc-force-run').live('click', function(){
 			var trigger_btn = $(this);
 
