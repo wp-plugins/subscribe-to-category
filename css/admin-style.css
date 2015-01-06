@@ -1,0 +1,17 @@
+/* 
+	Admin styles - Subscribe to category
+*/
+
+.stc-force-run-action{
+	float: right;
+	text-align: right;
+}
+
+#stc-spinner{
+	float: left;
+}
+
+.stc-section span:before {
+    content: "\f307";
+    top: -1px;
+}

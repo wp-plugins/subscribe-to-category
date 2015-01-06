@@ -1,0 +1,349 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe to Category v1.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-01-06 08:04:38+0000\n"
+"Last-Translator: adminccsuser <daniel.soderstrom@cybercom.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: classes/class-subscribe.php:992
+#@ stc_textdomain
+msgid "Click here to read full story"
+msgstr "Klicka här för att läsa hela artikeln"
+
+#: classes/class-subscribe.php:781
+#: classes/class-subscribe.php:993
+#@ stc_textdomain
+msgid "Unsubscribe me"
+msgstr "Avanmäl mig"
+
+#: classes/class-subscribe.php:188
+#@ stc_textdomain
+msgid "Thanks for your subscription!"
+msgstr "Tack för din anmälan!"
+
+#: classes/class-subscribe.php:189
+#@ stc_textdomain
+msgid "If you want to unsubscribe there is a link for unsubscription attached in the email."
+msgstr "Om du vill avanmäla dig från prenumerationstjänsten finns det en länk bifogad i e-postmeddelandet du kommer att erhålla i samband med utskick."
+
+#: classes/class-subscribe.php:225
+#, php-format
+#@ stc_textdomain
+msgid "We have successfully removed your email %s from our database."
+msgstr "Vi har tagit bort din e-postadress %s från vår databas."
+
+#: classes/class-subscribe.php:309
+#: classes/class-subscribe.php:335
+#, php-format
+#@ stc_textdomain
+msgid "Unsubscribe from %s"
+msgstr "Avanmäl mig från %s"
+
+#: classes/class-subscribe.php:336
+#@ stc_textdomain
+msgid "Follow this link to confirm your unsubscription"
+msgstr "Följ denna länk för att fullfölja din avanmälan"
+
+#: classes/class-subscribe.php:360
+#: classes/class-subscribe.php:393
+#: classes/class-subscribe.php:529
+#@ stc_textdomain
+msgid "You need to enter a valid email address"
+msgstr "Du behöver ange en giltig e-postadress"
+
+#: classes/class-subscribe.php:377
+#@ stc_textdomain
+msgid "We have received your request to unsubscribe from our newsfeed. Please check your email and confirm your unsubscription."
+msgstr "Vi har mottagit din förfrågan om avanmälan från prenumerationstjänsten och skickat ett e-postmeddelande om hur du fullföljer din avanmälan."
+
+#: classes/class-subscribe.php:405
+#@ stc_textdomain
+msgid "You need to select some categories"
+msgstr "Du behöver välja en eller flera kategorier"
+
+#: classes/class-subscribe.php:774
+#@ stc_textdomain
+msgid "E-mail Address: "
+msgstr "E-postadress:"
+
+#: classes/class-subscribe.php:786
+#@ stc_textdomain
+msgid "Categories"
+msgstr "Kategorier"
+
+#: classes/class-subscribe.php:811
+#@ stc_textdomain
+msgid "Subscribe me"
+msgstr "Prenumerera"
+
+#: classes/class-subscribe.php:812
+#@ stc_textdomain
+msgid "Unsubscribe"
+msgstr "Avanmäl"
+
+#: classes/class-settings.php:79
+#@ stc_textdomain
+msgid "Subscribe to Category"
+msgstr "Prenumerera på en kategori"
+
+#: classes/class-settings.php:80
+#: classes/class-subscribe.php:1069
+#@ stc_textdomain
+msgid "Subscribe"
+msgstr "Prenumerera"
+
+#: classes/class-settings.php:103
+#@ stc_textdomain
+msgid "Settings for subscribe to category"
+msgstr "Inställningar för Subscribe to Category"
+
+#: classes/class-settings.php:190
+#@ stc_textdomain
+msgid "E-mail settings"
+msgstr "E-postinställningar"
+
+#: classes/class-settings.php:197
+#@ stc_textdomain
+msgid "E-mail from: "
+msgstr "E-postadress från:"
+
+#: classes/class-settings.php:332
+#@ stc_textdomain
+msgid "Add your E-mail settings"
+msgstr "Lägg till e-postinställningar"
+
+#: classes/class-subscribe.php:369
+#@ stc_textdomain
+msgid "Email address not found in database"
+msgstr "E-postadressen kunde ej hittas i vår databas"
+
+#: classes/class-subscribe.php:791
+#@ stc_textdomain
+msgid "All categories"
+msgstr "Alla kategorier"
+
+#: classes/class-subscribe.php:1070
+#: classes/class-subscribe.php:1071
+#@ stc_textdomain
+msgid "Add new subscriber"
+msgstr "Lägg till ny prenumerant"
+
+#: classes/class-subscribe.php:1072
+#@ stc_textdomain
+msgid "Edit subscriber"
+msgstr "Ändra prenumerant"
+
+#: classes/class-subscribe.php:1073
+#@ stc_textdomain
+msgid "New subscriber"
+msgstr "Ny prenumerant"
+
+#: classes/class-subscribe.php:1074
+#@ stc_textdomain
+msgid "Show subscriber"
+msgstr "Visa prenumeranter"
+
+#: classes/class-subscribe.php:1075
+#@ stc_textdomain
+msgid "Search subscribers"
+msgstr "Sök prenumeranter"
+
+#: classes/class-subscribe.php:1076
+#@ stc_textdomain
+msgid "Not found"
+msgstr "Kunde ej hittas"
+
+#: classes/class-subscribe.php:1077
+#@ stc_textdomain
+msgid "Nothing found in trash"
+msgstr "Papperskorgen är tom"
+
+#: classes/class-subscribe.php:1068
+#: classes/class-subscribe.php:1078
+#@ stc_textdomain
+msgid "Subscribers"
+msgstr "Prenumeranter"
+
+#: classes/class-settings.php:232
+#@ stc_textdomain
+msgid "Stylesheet (CSS) settings"
+msgstr "Inställning för CSS"
+
+#: classes/class-settings.php:239
+#@ stc_textdomain
+msgid "Custom CSS: "
+msgstr "STC stylesheet:"
+
+#: classes/class-settings.php:301
+#@ stc_textdomain
+msgid "You have entered an invalid email."
+msgstr "Du har engett en felaktig e-postadress."
+
+#: classes/class-settings.php:345
+#, php-format
+#@ stc_textdomain
+msgid "Enter the e-mail address for the sender, if empty the admin e-mail address %s is going to be used as sender."
+msgstr "Ange den e-postadress som ska användas som avsändare, som standard används administratörens e-post %s."
+
+#: classes/class-settings.php:394
+#@ stc_textdomain
+msgid "Exclude custom CSS"
+msgstr "Exkludera STC CSS"
+
+#: classes/class-settings.php:395
+#@ stc_textdomain
+msgid "Check this option if your theme supports Bootstrap framework or if you want to place your own CSS for Subscribe to Category in your theme."
+msgstr "Använd detta alternativ om ditt tema använder Bootstrap ramverket eller om du vill använda egen css för Subscribe to Category i ditt tema."
+
+#: classes/class-subscribe.php:159
+#@ stc_textdomain
+msgid "Take me to start page"
+msgstr "Till startsidan"
+
+#: classes/class-subscribe.php:217
+#@ default
+msgid "We are sorry but something went wrong with your unsubscription."
+msgstr ""
+
+#: classes/class-subscribe.php:536
+#@ stc_textdomain
+msgid "E-mail address already exists"
+msgstr "E-postadressen finns redan registrerad"
+
+#: classes/class-subscribe.php:540
+#@ stc_textdomain
+msgid "No categories are selected"
+msgstr "Inga kategorier valda"
+
+#: classes/class-subscribe.php:582
+#@ stc_textdomain
+msgid " - this post is set to draft"
+msgstr "- inläggets status är ändrat till utkast."
+
+#: classes/class-settings.php:426
+#@ stc_textdomain
+msgid "Export to excel"
+msgstr "Exportera till excel"
+
+#: classes/class-settings.php:431
+#@ stc_textdomain
+msgid "Filter by categories"
+msgstr "Välj och filtrera på kategorier"
+
+#: classes/class-settings.php:438
+#@ stc_textdomain
+msgid "There are no categories to list yet"
+msgstr "Det finns ännu inga kategorier inlagda"
+
+#: classes/class-settings.php:509
+#@ stc_textdomain
+msgid "Filtered by: "
+msgstr "Filtrering på:"
+
+#: classes/class-settings.php:205
+#@ stc_textdomain
+msgid "Email subject: "
+msgstr "E-post titel:"
+
+#: classes/class-settings.php:358
+#@ stc_textdomain
+msgid "Enter e-mail subject for the e-mail notification, leave empty if you wish to use post title as email subject."
+msgstr "Som standard används inläggets rubrik som titel på e-postmeddelandet. Ange en egen titel om du önskar ändra standardtitel."
+
+#: classes/class-settings.php:55
+#@ stc_textdomain
+msgid "Scheduled event successfully executed"
+msgstr "Schemalagt event utfört"
+
+#: classes/class-settings.php:109
+#@ stc_textdomain
+msgid "Schedule: "
+msgstr "Schemaläggning:"
+
+#: classes/class-settings.php:109
+#@ stc_textdomain
+msgid "E-mail is scheduled to be sent once every hour."
+msgstr "E-postmeddelanden är schemalagt att skickas varje timme."
+
+#: classes/class-settings.php:111
+#@ stc_textdomain
+msgid "Click here to run this action right now"
+msgstr "Skicka e-postmeddelanden nu"
+
+#: classes/class-settings.php:114
+#, php-format
+#@ stc_textdomain
+msgid "Next run is going to be <strong>%s</strong> and will include %s posts."
+msgstr "Nästa körning är <strong>%s</strong> och avser %s inlägg."
+
+#: classes/class-settings.php:249
+#@ stc_textdomain
+msgid "On plugin deactivation"
+msgstr "Vid avaktivering av denna plugin"
+
+#: classes/class-settings.php:256
+#@ stc_textdomain
+msgid "Subscribers: "
+msgstr "Prenumeranter:"
+
+#: classes/class-settings.php:280
+#@ stc_textdomain
+msgid "The plugin will remove all data in database created by this plugin but there is an option regarding subscribers"
+msgstr "Den data som pluginen skapat i databasen raderas vid avaktivering av pluginen förutom prenumeranter. För att även radera prenumeranter vid avaktivering behöver du göra ett aktivt val."
+
+#: classes/class-settings.php:413
+#@ stc_textdomain
+msgid "Delete all subscribers on deactivation"
+msgstr "Radera prenumeranter vid avaktivering av plugin"
+
+#: classes/class-subscribe.php:105
+#, php-format
+#@ stc_textdomain
+msgid "This post update will be re-sent to subscribers %s"
+msgstr "Inlägget kommer att skickas igen till prenumeranter %s"
+
+#: classes/class-settings.php:215
+#@ stc_textdomain
+msgid "Resend post on update"
+msgstr "Skicka e-post när ett inlägg uppdateras"
+
+#: classes/class-settings.php:222
+#@ stc_textdomain
+msgid "Resend:"
+msgstr "Skicka vid uppdatering"
+
+#: classes/class-settings.php:376
+#@ stc_textdomain
+msgid "Enable resend post option"
+msgstr "Aktivera möjligheten att skicka vid uppdatering av inlägg"
+
+#: classes/class-settings.php:377
+#@ stc_textdomain
+msgid "Gives an option on edit post (in the publish panel) to resend a post on update."
+msgstr "Lägger till ett val i panelen \\\"Publicera\\\" gällande om inlägget ska skickas ut igen till prenumeranter."
+
+#: classes/class-subscribe.php:103
+#@ stc_textdomain
+msgid "Resend post to subscribers"
+msgstr "Skicka inlägg till prenumeranter"
+
+#: classes/class-subscribe.php:936
+#@ stc_textdomain
+msgid "Update | "
+msgstr "Uppdatering | "
+
