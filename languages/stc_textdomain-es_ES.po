@@ -1,0 +1,313 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe to Category v1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-12-02 11:23:22+0000\n"
+"Last-Translator: sgisoft <clientes@sgisoft.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: classes/class-settings.php:55
+#@ stc_textdomain
+msgid "Scheduled event successfully executed"
+msgstr "Evento programado ejecutado con éxito"
+
+#: classes/class-settings.php:79
+#@ stc_textdomain
+msgid "Subscribe to Category"
+msgstr "Suscribirse a una Sección"
+
+#: classes/class-settings.php:80
+#: classes/class-subscribe.php:916
+#@ stc_textdomain
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+#: classes/class-settings.php:103
+#@ stc_textdomain
+msgid "Settings for subscribe to category"
+msgstr "Configuración para suscribirse a una sección"
+
+#: classes/class-settings.php:109
+#@ stc_textdomain
+msgid "Schedule: "
+msgstr "Programación: "
+
+#: classes/class-settings.php:109
+#@ stc_textdomain
+msgid "E-mail is scheduled to be sent once every hour."
+msgstr "Está programado para enviar los correos cada hora."
+
+#: classes/class-settings.php:111
+#@ stc_textdomain
+msgid "Click here to run this action right now"
+msgstr "Pulsar aquí para ejecutar esta acción ahora mismo"
+
+#: classes/class-settings.php:114
+#, php-format
+#@ stc_textdomain
+msgid "Next run is going to be <strong>%s</strong> and will include %s posts."
+msgstr ""
+
+#: classes/class-settings.php:189
+#@ stc_textdomain
+msgid "E-mail settings"
+msgstr "Configuración del correo"
+
+#: classes/class-settings.php:196
+#@ stc_textdomain
+msgid "E-mail from: "
+msgstr "Formulario de Correo: "
+
+#: classes/class-settings.php:204
+#@ stc_textdomain
+msgid "Email subject: "
+msgstr "Asunto: "
+
+#: classes/class-settings.php:214
+#@ stc_textdomain
+msgid "Stylesheet (CSS) settings"
+msgstr ""
+
+#: classes/class-settings.php:221
+#@ stc_textdomain
+msgid "Custom CSS: "
+msgstr ""
+
+#: classes/class-settings.php:231
+#@ stc_textdomain
+msgid "On plugin deactivation"
+msgstr ""
+
+#: classes/class-settings.php:238
+#@ stc_textdomain
+msgid "Subscribers: "
+msgstr "Suscriptores: "
+
+#: classes/class-settings.php:262
+#@ stc_textdomain
+msgid "The plugin will remove all data in database created by this plugin but there is an option regarding subscribers"
+msgstr ""
+
+#: classes/class-settings.php:283
+#@ stc_textdomain
+msgid "You have entered an invalid email."
+msgstr "Has introducido un correo incorrecto."
+
+#: classes/class-settings.php:310
+#@ stc_textdomain
+msgid "Add your E-mail settings"
+msgstr ""
+
+#: classes/class-settings.php:323
+#, php-format
+#@ stc_textdomain
+msgid "Enter the e-mail address for the sender, if empty the admin e-mail address %s is going to be used as sender."
+msgstr ""
+
+#: classes/class-settings.php:336
+#@ stc_textdomain
+msgid "Enter e-mail subject for the e-mail notification, leave empty if you wish to use post title as email subject."
+msgstr ""
+
+#: classes/class-settings.php:353
+#@ stc_textdomain
+msgid "Exclude custom CSS"
+msgstr ""
+
+#: classes/class-settings.php:354
+#@ stc_textdomain
+msgid "Check this option if your theme supports Bootstrap framework or if you want to place your own CSS for Subscribe to Category in your theme."
+msgstr ""
+
+#: classes/class-settings.php:372
+#@ stc_textdomain
+msgid "Delete all subscribers on deactivation"
+msgstr ""
+
+#: classes/class-settings.php:385
+#@ stc_textdomain
+msgid "Export to excel"
+msgstr "Exportar a Excel"
+
+#: classes/class-settings.php:390
+#@ stc_textdomain
+msgid "Filter by categories"
+msgstr "Filtrar por sección"
+
+#: classes/class-settings.php:397
+#@ stc_textdomain
+msgid "There are no categories to list yet"
+msgstr "No hay secciones que visualizar todavía"
+
+#: classes/class-settings.php:468
+#@ stc_textdomain
+msgid "Filtered by: "
+msgstr "Filtrado por: "
+
+#: classes/class-subscribe.php:128
+#@ stc_textdomain
+msgid "Take me to start page"
+msgstr ""
+
+#: classes/class-subscribe.php:157
+#@ stc_textdomain
+msgid "Thanks for your subscription!"
+msgstr "Muchas gracias por suscribirse!"
+
+#: classes/class-subscribe.php:158
+#@ stc_textdomain
+msgid "If you want to unsubscribe there is a link for unsubscription attached in the email."
+msgstr "Si quiere darse de baja, hay un enlace adjunto en el correo electrónico."
+
+#: classes/class-subscribe.php:186
+#@ default
+msgid "We are sorry but something went wrong with your unsubscription."
+msgstr ""
+
+#: classes/class-subscribe.php:194
+#, php-format
+#@ stc_textdomain
+msgid "We have successfully removed your email %s from our database."
+msgstr "Hemos eliminado su correo %s de nuestra base de datos."
+
+#: classes/class-subscribe.php:255
+#: classes/class-subscribe.php:281
+#, php-format
+#@ stc_textdomain
+msgid "Unsubscribe from %s"
+msgstr "Darse de baja de %s"
+
+#: classes/class-subscribe.php:282
+#@ stc_textdomain
+msgid "Follow this link to confirm your unsubscription"
+msgstr "Pinche este link para confirmar su baja"
+
+#: classes/class-subscribe.php:306
+#: classes/class-subscribe.php:339
+#: classes/class-subscribe.php:475
+#@ stc_textdomain
+msgid "You need to enter a valid email address"
+msgstr "Debe rellenar un correo electrónico válido"
+
+#: classes/class-subscribe.php:315
+#@ stc_textdomain
+msgid "Email address not found in database"
+msgstr "Dirección de correo no encontrada en nuestra base de datos"
+
+#: classes/class-subscribe.php:323
+#@ stc_textdomain
+msgid "We have received your request to unsubscribe from our newsfeed. Please check your email and confirm your unsubscription."
+msgstr "Hemos recibido su petición de baja de suscripción en nuestro periódico. Por favor revise su correo para confirmar la baja definitiva. "
+
+#: classes/class-subscribe.php:351
+#@ stc_textdomain
+msgid "You need to select some categories"
+msgstr "Tiene que seleccionar alguna sección"
+
+#: classes/class-subscribe.php:482
+#@ stc_textdomain
+msgid "E-mail address already exists"
+msgstr "Este correo ya existe"
+
+#: classes/class-subscribe.php:486
+#@ stc_textdomain
+msgid "No categories are selected"
+msgstr "No ha elegido ninguna sección"
+
+#: classes/class-subscribe.php:528
+#@ stc_textdomain
+msgid " - this post is set to draft"
+msgstr ""
+
+#: classes/class-subscribe.php:649
+#@ stc_textdomain
+msgid "E-mail Address: "
+msgstr "Dirección de Correo: "
+
+#: classes/class-subscribe.php:656
+#: classes/class-subscribe.php:840
+#@ stc_textdomain
+msgid "Unsubscribe me"
+msgstr "Darme de baja"
+
+#: classes/class-subscribe.php:661
+#@ stc_textdomain
+msgid "Categories"
+msgstr "Secciones"
+
+#: classes/class-subscribe.php:665
+#@ stc_textdomain
+msgid "All categories"
+msgstr "Todas las secciones"
+
+#: classes/class-subscribe.php:682
+#@ stc_textdomain
+msgid "Subscribe me"
+msgstr "Suscribirme"
+
+#: classes/class-subscribe.php:683
+#@ stc_textdomain
+msgid "Unsubscribe"
+msgstr "Dar de baja"
+
+#: classes/class-subscribe.php:839
+#@ stc_textdomain
+msgid "Click here to read full story"
+msgstr "Pulse aquí para ver la noticia completa"
+
+#: classes/class-subscribe.php:915
+#: classes/class-subscribe.php:925
+#@ stc_textdomain
+msgid "Subscribers"
+msgstr "Suscriptores"
+
+#: classes/class-subscribe.php:917
+#: classes/class-subscribe.php:918
+#@ stc_textdomain
+msgid "Add new subscriber"
+msgstr "Añadir nuevo suscriptor"
+
+#: classes/class-subscribe.php:919
+#@ stc_textdomain
+msgid "Edit subscriber"
+msgstr "Editar suscriptor"
+
+#: classes/class-subscribe.php:920
+#@ stc_textdomain
+msgid "New subscriber"
+msgstr "Nuevo suscriptor"
+
+#: classes/class-subscribe.php:921
+#@ stc_textdomain
+msgid "Show subscriber"
+msgstr "Mostrar suscriptor"
+
+#: classes/class-subscribe.php:922
+#@ stc_textdomain
+msgid "Search subscribers"
+msgstr "Buscar suscriptores"
+
+#: classes/class-subscribe.php:923
+#@ stc_textdomain
+msgid "Not found"
+msgstr "No encontrado"
+
+#: classes/class-subscribe.php:924
+#@ stc_textdomain
+msgid "Nothing found in trash"
+msgstr "No hay nada en la papelera"
+
