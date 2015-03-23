@@ -1,0 +1,309 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe to Category\n"
+"POT-Creation-Date: 2015-03-20 23:59+0300\n"
+"PO-Revision-Date: 2015-03-21 00:32+0300\n"
+"Last-Translator: OrdinaryGuy <git@ordinaryguy.me>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/class-settings.php:55
+msgid "Scheduled event successfully executed"
+msgstr "Запланированное событие успешно выполнено"
+
+#: classes/class-settings.php:79
+msgid "Subscribe to Category"
+msgstr "Подписаться на рубрику"
+
+#: classes/class-settings.php:80 classes/class-subscribe.php:1067
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: classes/class-settings.php:103
+msgid "Settings for subscribe to category"
+msgstr "Параметры подписки на рубрику"
+
+#: classes/class-settings.php:109
+msgid "Schedule: "
+msgstr "Расписание:"
+
+#: classes/class-settings.php:109
+msgid "E-mail is scheduled to be sent once every hour."
+msgstr "Отправка сообщения происходит по расписанию раз в час."
+
+#: classes/class-settings.php:111
+msgid "Click here to run this action right now"
+msgstr "Нажмите здесь, чтобы запустить прямо сейчас"
+
+#: classes/class-settings.php:114
+#, php-format
+msgid "Next run is going to be <strong>%s</strong> and will include %s posts."
+msgstr ""
+"Следующий запуск будет <strong>%s</strong> и будет включать в себя %s постов."
+
+#: classes/class-settings.php:190
+msgid "E-mail settings"
+msgstr "Настройки почты"
+
+#: classes/class-settings.php:197
+msgid "E-mail from: "
+msgstr "Отправлять от имени:"
+
+#: classes/class-settings.php:205
+msgid "Email subject: "
+msgstr "Тема письма:"
+
+#: classes/class-settings.php:215
+msgid "Resend post on update"
+msgstr "Повторно отправить сообщение при обновлении"
+
+#: classes/class-settings.php:222
+msgid "Resend:"
+msgstr "Отправить повторно:"
+
+#: classes/class-settings.php:232
+msgid "Stylesheet (CSS) settings"
+msgstr "Параметры таблицы стилей (CSS)"
+
+#: classes/class-settings.php:239
+msgid "Custom CSS: "
+msgstr "Пользовательские стили (CSS):"
+
+#: classes/class-settings.php:249
+msgid "On plugin deactivation"
+msgstr "При отключении плагина"
+
+#: classes/class-settings.php:256
+msgid "Subscribers: "
+msgstr "Подписчики:"
+
+#: classes/class-settings.php:280
+msgid ""
+"The plugin will remove all data in database created by this plugin but there "
+"is an option regarding subscribers"
+msgstr ""
+"Плагин удалит все свои данные из базы, но есть отдельная настройка, "
+"касающаяся подписчиков"
+
+#: classes/class-settings.php:301
+msgid "You have entered an invalid email."
+msgstr "Вы ввели неправильный адрес электронной почты."
+
+#: classes/class-settings.php:332
+msgid "Add your E-mail settings"
+msgstr "Добавьте параметры почты"
+
+#: classes/class-settings.php:345
+#, php-format
+msgid ""
+"Enter the e-mail address for the sender, if empty the admin e-mail address "
+"%s is going to be used as sender."
+msgstr ""
+"Введите почтовый адрес отправителя, если не введен адрес почты "
+"администратора, %s будет использоваться в качестве отправителя."
+
+#: classes/class-settings.php:358
+msgid ""
+"Enter e-mail subject for the e-mail notification, leave empty if you wish to "
+"use post title as email subject."
+msgstr ""
+"Введите тему письма для уведомления по электронной почте, оставьте пустым, "
+"если вы хотите использовать название поста в качестве теме письма."
+
+#: classes/class-settings.php:376
+msgid "Enable resend post option"
+msgstr "Включите опцию повторно отправить сообщение"
+
+#: classes/class-settings.php:377
+msgid ""
+"Gives an option on edit post (in the publish panel) to resend a post on "
+"update."
+msgstr ""
+"Включает возможность повторно отправить сообщение(в панели публикации) при "
+"измении поста."
+
+#: classes/class-settings.php:394
+msgid "Exclude custom CSS"
+msgstr "Исключить пользовательские стили"
+
+#: classes/class-settings.php:395
+msgid ""
+"Check this option if your theme supports Bootstrap framework or if you want "
+"to place your own CSS for Subscribe to Category in your theme."
+msgstr ""
+"Включите этот флажок, если ваша тема поддерживает Bootstrap или если вы "
+"хотите добавить персональные стили (CSS) к Subscribe to Category плагину в "
+"вашей теме."
+
+#: classes/class-settings.php:413
+msgid "Delete all subscribers on deactivation"
+msgstr "Удалить всех подписчиков при выключении"
+
+#: classes/class-settings.php:426
+msgid "Export to excel"
+msgstr "Экспортировать в Excel"
+
+#: classes/class-settings.php:431
+msgid "Filter by categories"
+msgstr "Фильтр по рубрикам"
+
+#: classes/class-settings.php:438
+msgid "There are no categories to list yet"
+msgstr "Нет еще ни одной рубрики"
+
+#: classes/class-settings.php:509
+msgid "Filtered by: "
+msgstr "Отфильтровано по:"
+
+#: classes/class-subscribe.php:103
+msgid "Resend post to subscribers"
+msgstr "Повторно отправить пост подписчикам"
+
+#: classes/class-subscribe.php:105
+#, php-format
+msgid "This post update will be re-sent to subscribers %s"
+msgstr "Это обновление будет повторно отправлено подписчикам %s"
+
+#: classes/class-subscribe.php:159
+msgid "Take me to start page"
+msgstr "Перейти на главную страницу"
+
+#: classes/class-subscribe.php:188
+msgid "Thanks for your subscription!"
+msgstr "Спасибо за подписку!"
+
+#: classes/class-subscribe.php:189
+msgid ""
+"If you want to unsubscribe there is a link for unsubscription attached in "
+"the email."
+msgstr ""
+"Если вы хотите отказаться от подписки, воспользуйтесь ссылкой из письма."
+
+#: classes/class-subscribe.php:217
+msgid "We are sorry but something went wrong with your unsubscription."
+msgstr "Нам очень жаль, но что-то пошло не так с отказом от подписки."
+
+#: classes/class-subscribe.php:225
+#, php-format
+msgid "We have successfully removed your email %s from our database."
+msgstr ""
+"Адрес Вашей электронной почты %s был успешно удален из нашей базы данных."
+
+#: classes/class-subscribe.php:307 classes/class-subscribe.php:333
+#, php-format
+msgid "Unsubscribe from %s"
+msgstr "Отказаться от рассылки о %s"
+
+#: classes/class-subscribe.php:334
+msgid "Follow this link to confirm your unsubscription"
+msgstr "Перейдите по этой ссылке для подтверждения отказа от рассылки"
+
+#: classes/class-subscribe.php:358 classes/class-subscribe.php:391
+#: classes/class-subscribe.php:527
+msgid "You need to enter a valid email address"
+msgstr "Вам необходимо ввести корректный адрес электронной почты"
+
+#: classes/class-subscribe.php:367
+msgid "Email address not found in database"
+msgstr "Адрес электронной почты не найден в базе данных"
+
+#: classes/class-subscribe.php:375
+msgid ""
+"We have received your request to unsubscribe from our newsfeed. Please check "
+"your email and confirm your unsubscription."
+msgstr ""
+"Мы получили Вашу заявку на отказ от рассылки наших новостей. Пожалуйста "
+"проверьте свою электронную почту и подтвердите Вам отказ."
+
+#: classes/class-subscribe.php:403
+msgid "You need to select some categories"
+msgstr "Вам нужно выбрать рубрику"
+
+#: classes/class-subscribe.php:534
+msgid "E-mail address already exists"
+msgstr "Адрес электронной почты уже существует"
+
+#: classes/class-subscribe.php:538
+msgid "No categories are selected"
+msgstr "Не выбрано ни одной рубрики"
+
+#: classes/class-subscribe.php:580
+msgid " - this post is set to draft"
+msgstr " - этот пост является черновиком"
+
+#: classes/class-subscribe.php:772
+msgid "E-mail Address: "
+msgstr "Электронный адрес:"
+
+#: classes/class-subscribe.php:779 classes/class-subscribe.php:991
+msgid "Unsubscribe me"
+msgstr "Отпишите меня"
+
+#: classes/class-subscribe.php:784
+msgid "Categories"
+msgstr "Рубрики"
+
+#: classes/class-subscribe.php:789
+msgid "All categories"
+msgstr "Все рубрики"
+
+#: classes/class-subscribe.php:809
+msgid "Subscribe me"
+msgstr "Подписаться"
+
+#: classes/class-subscribe.php:810
+msgid "Unsubscribe"
+msgstr "Отписаться"
+
+#: classes/class-subscribe.php:934
+msgid "Update | "
+msgstr "Обновить |"
+
+#: classes/class-subscribe.php:990
+msgid "Click here to read full story"
+msgstr "Нажмите здесь, что прочитать статью полностью."
+
+#: classes/class-subscribe.php:1066 classes/class-subscribe.php:1076
+msgid "Subscribers"
+msgstr "Подписчики"
+
+#: classes/class-subscribe.php:1068 classes/class-subscribe.php:1069
+msgid "Add new subscriber"
+msgstr "Добавить нового подписчика"
+
+#: classes/class-subscribe.php:1070
+msgid "Edit subscriber"
+msgstr "Редактировать подписчика"
+
+#: classes/class-subscribe.php:1071
+msgid "New subscriber"
+msgstr "Новый подписчик"
+
+#: classes/class-subscribe.php:1072
+msgid "Show subscriber"
+msgstr "Показать подписчика"
+
+#: classes/class-subscribe.php:1073
+msgid "Search subscribers"
+msgstr "Искать подписчиков"
+
+#: classes/class-subscribe.php:1074
+msgid "Not found"
+msgstr "Не найдено"
+
+#: classes/class-subscribe.php:1075
+msgid "Nothing found in trash"
+msgstr "В корзине ничего не найдено"
