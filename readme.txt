@@ -31,9 +31,11 @@ The following settings and features are available for the administrator in curre
 
 
 = What Translations are included? =
-* Swedish
 * English
-* Spanish (thanks to Senén Vidal Blanco)
+* French
+* Russian
+* Spanish
+* Swedish
 ____
 Have you translated this plugin to another language? Please send me your files to info@dcweb.nu and I will add them to the plugin.
 
