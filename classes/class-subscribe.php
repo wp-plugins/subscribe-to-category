@@ -245,8 +245,12 @@ if( class_exists( 'STC_Subscribe' ) ) {
       if(empty( $_POST )) 
         return false;
 
+      // only trigger this from admin
+      if( !isset( $_POST['post_type'] ) )
+        return false;
+
       // exit if not post type post
-      if( $_POST['post_type'] != 'post' )
+      if( isset( $_POST['post_type'] ) && $_POST['post_type'] != 'post' )
         return false;
 
       // exit if we're doing an auto save  
@@ -254,7 +258,7 @@ if( class_exists( 'STC_Subscribe' ) ) {
         return false; 
 
       // if our current user can't edit this post, bail  
-      if( !current_user_can( 'edit_post' ) ) 
+      if( !current_user_can( 'edit_post', $post_id ) ) 
         return false;  
 
       $stc_status = get_post_meta( $post_id, '_stc_notifier_status', true );
@@ -502,7 +506,10 @@ if( class_exists( 'STC_Subscribe' ) ) {
         return false;
 
       // only trigger this from admin
-      if( $_POST['post_type'] != 'stc' )
+      if( !isset( $_POST['post_type'] ) )
+        return false;
+
+      if( isset( $_POST['post_type'] ) && $_POST['post_type'] != 'stc' )
         return false;
 
       // Bail if we're doing an auto save  
@@ -510,19 +517,22 @@ if( class_exists( 'STC_Subscribe' ) ) {
         return false; 
 
       // if our current user can't edit this post, bail  
-      if( !current_user_can( 'edit_post' ) ) 
+      if( !current_user_can( 'edit_post', $post_id ) ) 
         return false;  
 
       // get categories to for counting and comparing to user categories
       $categories = get_categories( array('hide_empty' => false ));
       $sum_of_categories = count( $categories );
-      $sum_of_post_categories = count( $_POST['post_category'] ) - 1; // wp sets a dummy item in post_category, therefore -1
 
+      if(isset( $_POST['post_category'] ) )
+        $sum_of_post_categories = count( $_POST['post_category'] ) - 1; // wp sets a dummy item in post_category, therefore -1
 
       // sanitize input
-      $email = sanitize_email( $_POST['post_title'] );
+      if(isset( $_POST['post_title'] ) )
+        $email = sanitize_email( $_POST['post_title'] );
 
       // is email valid 
+      $post_id_match = '';
       if(! is_email( $email ) ){
         set_transient( 'error', __( 'You need to enter a valid email address', STC_TEXTDOMAIN ) ); // set error if not valid
       } else {
@@ -938,7 +948,7 @@ if( class_exists( 'STC_Subscribe' ) ) {
         wp_mail( $email['email'], $subject, $message, $headers );
 
         // sleep 2 seconds once every 25 email to prevent blacklisting
-        if( $i == $sleep_flag ){
+        if( $i == $this->sleep_flag ){
           sleep(2); // sleep for two seconds, then proceed
           $i = 1; // reset loop counter
         }

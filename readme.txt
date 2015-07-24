@@ -2,8 +2,8 @@
 Contributors: dansod
 Tags: subscribe to post, subscribe to category, subscribe to news, subscribe
 Requires at least: 3.9
-Tested up to: 4.1
-Stable tag: 1.2.0
+Tested up to: 4.2.3
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,7 @@ The following settings and features are available for the administrator in curre
 = What Translations are included? =
 * English
 * French
+* Italian
 * Russian
 * Spanish
 * Swedish
@@ -66,6 +67,11 @@ Therefore a suggested interval for your server cron could be once every 5 minute
 4. When resend post is enabled in settings there is a new option available when editing a post.
 
 == Changelog ==
+
+= 1.2.1 =
+* Fixed some undefined variables that might have caused some errors for some environments
+* Renamed language files for russian language to correct syntax
+* Added Italian language thanks to Claudio
 
 = 1.2.0 =
 * Possibillity to re-send a post on update that has already been sent. This option needs to be activated in the settings for the plugin.
