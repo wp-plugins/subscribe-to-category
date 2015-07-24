@@ -1,0 +1,330 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe to Category v1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-06-26 16:14+0100\n"
+"Last-Translator: sgisoft <clientes@sgisoft.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"Language: it_IT\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ stc_textdomain
+#: classes/class-settings.php:55
+msgid "Scheduled event successfully executed"
+msgstr "Schedulazione eseguita con successo"
+
+# @ stc_textdomain
+#: classes/class-settings.php:79
+msgid "Subscribe to Category"
+msgstr "Subscribe to Category"
+
+# @ stc_textdomain
+#: classes/class-settings.php:80 classes/class-subscribe.php:916
+msgid "Subscribe"
+msgstr "Subscribe to Category"
+
+# @ stc_textdomain
+#: classes/class-settings.php:103
+msgid "Settings for subscribe to category"
+msgstr "Impostazioni per il plugin “Subscribe to category”"
+
+# @ stc_textdomain
+#: classes/class-settings.php:109
+msgid "Schedule: "
+msgstr "Schedulazione: "
+
+# @ stc_textdomain
+#: classes/class-settings.php:109
+msgid "E-mail is scheduled to be sent once every hour."
+msgstr "Le notifiche via email vengono inviate ogni ora."
+
+# @ stc_textdomain
+#: classes/class-settings.php:111
+msgid "Click here to run this action right now"
+msgstr "Clicca qui per inviare adesso"
+
+# @ stc_textdomain
+#: classes/class-settings.php:114
+#, php-format
+msgid "Next run is going to be <strong>%s</strong> and will include %s posts."
+msgstr ""
+"Data/ora del prossimo invio: <strong>%s</strong> (saranno inviati %s "
+"articoli)"
+
+# @ stc_textdomain
+#: classes/class-settings.php:189
+msgid "E-mail settings"
+msgstr "Impostazioni delle mail"
+
+# @ stc_textdomain
+#: classes/class-settings.php:196
+msgid "E-mail from: "
+msgstr "Mittente delle mail: "
+
+# @ stc_textdomain
+#: classes/class-settings.php:204
+msgid "Email subject: "
+msgstr "Oggetto delle mail: "
+
+# @ stc_textdomain
+#: classes/class-settings.php:214
+msgid "Stylesheet (CSS) settings"
+msgstr "Impostazioni del Foglio di Stile (CSS)"
+
+# @ stc_textdomain
+#: classes/class-settings.php:221
+msgid "Custom CSS: "
+msgstr "Custom CSS: "
+
+# @ stc_textdomain
+#: classes/class-settings.php:231
+msgid "On plugin deactivation"
+msgstr "Alla disattivazione del plugin"
+
+# @ stc_textdomain
+#: classes/class-settings.php:238
+msgid "Subscribers: "
+msgstr "Sottoscrittori: "
+
+# @ stc_textdomain
+#: classes/class-settings.php:262
+msgid ""
+"The plugin will remove all data in database created by this plugin but there "
+"is an option regarding subscribers"
+msgstr ""
+"Alla rimozione del plugin saranno eliminati tutti i suoi dati, tranne i "
+"Sottoscrittori. Se vuoi eliminare anche questi dal database, utilizza la "
+"seguente opzione"
+
+# @ stc_textdomain
+#: classes/class-settings.php:283
+msgid "You have entered an invalid email."
+msgstr "Hai inserito un indirizzo email non valido."
+
+# @ stc_textdomain
+#: classes/class-settings.php:310
+msgid "Add your E-mail settings"
+msgstr "Aggiungi le impostazioni delle email"
+
+# @ stc_textdomain
+#: classes/class-settings.php:323
+#, php-format
+msgid ""
+"Enter the e-mail address for the sender, if empty the admin e-mail address "
+"%s is going to be used as sender."
+msgstr ""
+"Inserire l’indirizzo email del mittente. Lasciando vuoto questo campo sarà "
+"utilizzato l’indirizzo email %s come mittente."
+
+# @ stc_textdomain
+#: classes/class-settings.php:336
+msgid ""
+"Enter e-mail subject for the e-mail notification, leave empty if you wish to "
+"use post title as email subject."
+msgstr ""
+"Inserisci l’oggetto delle e-mail che saranno inviate. Lasciando vuoto il "
+"campo sarà utilizzato il titolo dell’articolo come oggetto."
+
+# @ stc_textdomain
+#: classes/class-settings.php:353
+msgid "Exclude custom CSS"
+msgstr "Escludi CSS del plugin"
+
+# @ stc_textdomain
+#: classes/class-settings.php:354
+msgid ""
+"Check this option if your theme supports Bootstrap framework or if you want "
+"to place your own CSS for Subscribe to Category in your theme."
+msgstr ""
+"Seleziona questa opzione se il tuo tema supporta il framework Bootstrap o se "
+"preferisci inserire gli stili CSS per il plugin nel tuo tema."
+
+# @ stc_textdomain
+#: classes/class-settings.php:372
+msgid "Delete all subscribers on deactivation"
+msgstr "Elimina tutti gli iscritti alla disattivazione del plugin"
+
+# @ stc_textdomain
+#: classes/class-settings.php:385
+msgid "Export to excel"
+msgstr "Esporta in Excel"
+
+# @ stc_textdomain
+#: classes/class-settings.php:390
+msgid "Filter by categories"
+msgstr "Filtra per categorie"
+
+# @ stc_textdomain
+#: classes/class-settings.php:397
+msgid "There are no categories to list yet"
+msgstr "Nessuna categoria da mostrare"
+
+# @ stc_textdomain
+#: classes/class-settings.php:468
+msgid "Filtered by: "
+msgstr "Filtra per: "
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:128
+msgid "Take me to start page"
+msgstr "Vai alla pagina iniziale"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:157
+msgid "Thanks for your subscription!"
+msgstr "La tua iscrizione è avvenuta con successo!"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:158
+msgid ""
+"If you want to unsubscribe there is a link for unsubscription attached in "
+"the email."
+msgstr " "
+
+# @ default
+#: classes/class-subscribe.php:186
+msgid "We are sorry but something went wrong with your unsubscription."
+msgstr "Ci dispiace ma si è generato un errore durante la tua disiscrizione."
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:194
+#, php-format
+msgid "We have successfully removed your email %s from our database."
+msgstr "Abbiamo rimosso l’indirizzo email %s dal nostro database."
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:255 classes/class-subscribe.php:281
+#, php-format
+msgid "Unsubscribe from %s"
+msgstr "Disiscrizione da %s"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:282
+msgid "Follow this link to confirm your unsubscription"
+msgstr "Clicca sul link per confermare la tua disiscrizione"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:306 classes/class-subscribe.php:339
+#: classes/class-subscribe.php:475
+msgid "You need to enter a valid email address"
+msgstr "Inserire un indirizzo email valido"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:315
+msgid "Email address not found in database"
+msgstr "Indirizzo email non trovato nel database"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:323
+msgid ""
+"We have received your request to unsubscribe from our newsfeed. Please check "
+"your email and confirm your unsubscription."
+msgstr ""
+"Abbiamo ricevuto la tua richiesta di disiscrizione alle notifiche via email. "
+"Controlla la tua casella di posta per confermare la tua disiscrizione."
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:351
+msgid "You need to select some categories"
+msgstr "È necessario selezionare almeno una categoria"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:482
+msgid "E-mail address already exists"
+msgstr "L’indirizzo e-mail risulta già iscritto"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:486
+msgid "No categories are selected"
+msgstr "Non hai selezionato nessuna categoria"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:528
+msgid " - this post is set to draft"
+msgstr " - questo articolo è nello stato di bozza"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:649
+msgid "E-mail Address: "
+msgstr "Indirizzo E-mail: "
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:656 classes/class-subscribe.php:840
+msgid "Unsubscribe me"
+msgstr "Desidero disiscrivermi dalle notifiche"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:661
+msgid "Categories"
+msgstr "Seleziona le categorie a cui vuoi iscriverti:"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:665
+msgid "All categories"
+msgstr "Tutte le categorie"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:682
+msgid "Subscribe me"
+msgstr "Conferma iscrizione"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:683
+msgid "Unsubscribe"
+msgstr "Disiscriviti"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:839
+msgid "Click here to read full story"
+msgstr "Clicca qui per leggere l’articolo"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:915 classes/class-subscribe.php:925
+msgid "Subscribers"
+msgstr "Sottoscrittori"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:917 classes/class-subscribe.php:918
+msgid "Add new subscriber"
+msgstr "Aggiungi nuovo"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:919
+msgid "Edit subscriber"
+msgstr "Modifica Sottoscrittore"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:920
+msgid "New subscriber"
+msgstr "Nuovo Sottoscrittore"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:921
+msgid "Show subscriber"
+msgstr "Mostra Sottoscrittori"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:922
+msgid "Search subscribers"
+msgstr "Cerca tra gli iscritti"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:923
+msgid "Not found"
+msgstr "Non trovato"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:924
+msgid "Nothing found in trash"
+msgstr "Nessun elemento trovato nel cestino"
