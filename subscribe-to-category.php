@@ -3,7 +3,7 @@
   Plugin Name: Subscribe to Category
   Plugin URI: http://dcweb.nu
   Description: Lets your visitor subscribe to posts for one or several categories.
-  Version: 1.2.1
+  Version: 1.3
   Author: Daniel Söderström 
   Author URI: http://dcweb.nu/
   License: GPLv2 or later
@@ -17,6 +17,7 @@
   define( 'STC_SLUG', 'stc' );
   define( 'STC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
   define( 'STC_PLUGIN_PATH', dirname( __FILE__ ) );
+  define( 'STC_DEV_MODE', false ); // set to true email is printed out on setting page and will not be sent.
 
   require_once( 'classes/class-main.php' );
   require_once( 'classes/class-settings.php' );

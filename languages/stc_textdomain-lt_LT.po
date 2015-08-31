@@ -1,0 +1,328 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe to Category v1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-08-03 14:56+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: lt_LT\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ stc_textdomain
+#: classes/class-settings.php:55
+msgid "Scheduled event successfully executed"
+msgstr "Planinis renginys sėkmingai sukurtas"
+
+# @ stc_textdomain
+#: classes/class-settings.php:79
+msgid "Subscribe to Category"
+msgstr "Prenumeruoti kategoriją"
+
+# @ stc_textdomain
+#: classes/class-settings.php:80 classes/class-subscribe.php:916
+msgid "Subscribe"
+msgstr "Prenumeruoti"
+
+# @ stc_textdomain
+#: classes/class-settings.php:103
+msgid "Settings for subscribe to category"
+msgstr "Kategorijos pasirinkimo nustatymai"
+
+# @ stc_textdomain
+#: classes/class-settings.php:109
+msgid "Schedule: "
+msgstr "Tvarkaraštis:"
+
+# @ stc_textdomain
+#: classes/class-settings.php:109
+msgid "E-mail is scheduled to be sent once every hour."
+msgstr "Elektroninį paštą numatyta išsiųsti kartą per valandą."
+
+# @ stc_textdomain
+#: classes/class-settings.php:111
+msgid "Click here to run this action right now"
+msgstr "Spauskite čia norėdami tuoj pat įgalinti veiksmo eigą "
+
+# @ stc_textdomain
+#: classes/class-settings.php:114
+#, php-format
+msgid "Next run is going to be <strong>%s</strong> and will include %s posts."
+msgstr "Kita eiga bus <stiprumas>%s</stiprumas> ir įtrauks %s laiškų."
+
+# @ stc_textdomain
+#: classes/class-settings.php:189
+msgid "E-mail settings"
+msgstr "Elektoninio pašto nustatymai"
+
+# @ stc_textdomain
+#: classes/class-settings.php:196
+msgid "E-mail from: "
+msgstr "Laiškas nuo:"
+
+# @ stc_textdomain
+#: classes/class-settings.php:204
+msgid "Email subject: "
+msgstr "Laiško tema:"
+
+# @ stc_textdomain
+#: classes/class-settings.php:214
+msgid "Stylesheet (CSS) settings"
+msgstr "Stilių lentelės nustatymai"
+
+# @ stc_textdomain
+#: classes/class-settings.php:221
+msgid "Custom CSS: "
+msgstr "Pasirinktinis CSS:"
+
+# @ stc_textdomain
+#: classes/class-settings.php:231
+msgid "On plugin deactivation"
+msgstr "Veikiančių įskiepų išjungimas"
+
+# @ stc_textdomain
+#: classes/class-settings.php:238
+msgid "Subscribers: "
+msgstr "Prenumeruotojai:"
+
+# @ stc_textdomain
+#: classes/class-settings.php:262
+msgid ""
+"The plugin will remove all data in database created by this plugin but there "
+"is an option regarding subscribers"
+msgstr "Įskiepas pašalins visą duonbazės informaciją sukūrtą šio įskiepo pagalba"
+"tačiau dėl prenumeratorių yra galimybė pasirinkti "
+
+# @ stc_textdomain
+#: classes/class-settings.php:283
+msgid "You have entered an invalid email."
+msgstr "Esate negaliojančiame susirašinėjime."
+
+# @ stc_textdomain
+#: classes/class-settings.php:310
+msgid "Add your E-mail settings"
+msgstr "Pridėti elektroninio pašto nustatymus"
+
+# @ stc_textdomain
+#: classes/class-settings.php:323
+#, php-format
+msgid ""
+"Enter the e-mail address for the sender, if empty the admin e-mail address "
+"%s is going to be used as sender."
+msgstr ""
+"Pridėkite siuntėjo elektroninį adresą, jeigu administratoriaus elektronino"
+"adreso nėra %s  bus naudojamas kaip siuntėjas."
+
+# @ stc_textdomain
+#: classes/class-settings.php:336
+msgid ""
+"Enter e-mail subject for the e-mail notification, leave empty if you wish to "
+"use post title as email subject."
+msgstr ""
+"Pridėkite laiško temą arba palikite tuščią laukelį jeigu norite naudoti skelbimo"
+"pavadinimą kaip laiško temą."
+
+# @ stc_textdomain
+#: classes/class-settings.php:353
+msgid "Exclude custom CSS"
+msgstr "Pašalinkite užsakymų CSS"
+
+# @ stc_textdomain
+#: classes/class-settings.php:354
+msgid ""
+"Check this option if your theme supports Bootstrap framework or if you want "
+"to place your own CSS for Subscribe to Category in your theme."
+msgstr ""
+"Patikrinkitę šią parinktį jeigu Jūsų tema įgalina Bootstrap sistemą arba"
+"jeigu norite savo temoje patalpinti Pasirinkti kategoriją naudodami Jūsų pačių CSS"
+
+# @ stc_textdomain
+#: classes/class-settings.php:372
+msgid "Delete all subscribers on deactivation"
+msgstr "Deaktyvuojant pašalinti visus prenumeratorius"
+
+# @ stc_textdomain
+#: classes/class-settings.php:385
+msgid "Export to excel"
+msgstr "Eksportuoti į excel"
+
+# @ stc_textdomain
+#: classes/class-settings.php:390
+msgid "Filter by categories"
+msgstr "Rūšiuoti pagal kategorijas"
+
+# @ stc_textdomain
+#: classes/class-settings.php:397
+msgid "There are no categories to list yet"
+msgstr "Nėra sukurtų kategorijų"
+
+# @ stc_textdomain
+#: classes/class-settings.php:468
+msgid "Filtered by: "
+msgstr "Rūšiuojama pagal:"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:128
+msgid "Take me to start page"
+msgstr "Eiti į pradžios puslapį"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:157
+msgid "Thanks for your subscription!"
+msgstr "Dėkojame už prenumeratą!"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:158
+msgid ""
+"If you want to unsubscribe there is a link for unsubscription attached in "
+"the email."
+msgstr "Norėdami nutraukti prenumeratą pasinaudokite laiške prisegta nuoroda"
+
+# @ default
+#: classes/class-subscribe.php:186
+msgid "We are sorry but something went wrong with your unsubscription."
+msgstr "Apgailestaujame, prenumeratos atsisakyti nepavyko"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:194
+#, php-format
+msgid "We have successfully removed your email %s from our database."
+msgstr "Jūsų elektroninis adresas %s sėkmingai pašalintas iš mūsų duonbazės "
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:255 classes/class-subscribe.php:281
+#, php-format
+msgid "Unsubscribe from %s"
+msgstr "Atsisakyti prenumeratos iš %s"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:282
+msgid "Follow this link to confirm your unsubscription"
+msgstr "Vadovaukitės šia nuoroda norėdami patvirtinti prenumeratos atsisakymą"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:306 classes/class-subscribe.php:339
+#: classes/class-subscribe.php:475
+msgid "You need to enter a valid email address"
+msgstr "Patikrinkite ar įvedėte teisingą elektroninį adresą"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:315
+msgid "Email address not found in database"
+msgstr "Elektroninis adresas duomenų bazėje nerastas"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:323
+msgid ""
+"We have received your request to unsubscribe from our newsfeed. Please check "
+"your email and confirm your unsubscription."
+msgstr ""
+"Gavome Jūsų prenumeratos atsisakymo prašymą. Prašome patikrinti savo elektroninį"
+"adresą ir patvirtinti prenumeratos atsisakymą."
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:351
+msgid "You need to select some categories"
+msgstr "Turite pasirinkti kategoriją"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:482
+msgid "E-mail address already exists"
+msgstr "Toks elektroninis adresas jau yra"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:486
+msgid "No categories are selected"
+msgstr "Nėra pasirinktų kategorijų"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:528
+msgid " - this post is set to draft"
+msgstr "laiškas priskirtas juodraščiams "
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:649
+msgid "E-mail Address: "
+msgstr "Elektroninis adresas:"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:656 classes/class-subscribe.php:840
+msgid "Unsubscribe me"
+msgstr "Atsisakyti prenumeratos"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:661
+msgid "Categories"
+msgstr "Kategorijos"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:665
+msgid "All categories"
+msgstr "Visos kategorijos"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:682
+msgid "Subscribe me"
+msgstr "Prenumeruoti"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:683
+msgid "Unsubscribe"
+msgstr "Atsisakyti prenumeratos"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:839
+msgid "Click here to read full story"
+msgstr "Skaityti visą tekstą"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:915 classes/class-subscribe.php:925
+msgid "Subscribers"
+msgstr "Prenumeratoriai"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:917 classes/class-subscribe.php:918
+msgid "Add new subscriber"
+msgstr "Pridėti naują prenumeratorių"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:919
+msgid "Edit subscriber"
+msgstr "Redaguoti prenumeratoriaus informaciją"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:920
+msgid "New subscriber"
+msgstr "Naujas prenumeratorius"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:921
+msgid "Show subscriber"
+msgstr "Rodyti prenumeratorių"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:922
+msgid "Search subscribers"
+msgstr "Ieškoti prenumeratoriaus"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:923
+msgid "Not found"
+msgstr "Nerasta"
+
+# @ stc_textdomain
+#: classes/class-subscribe.php:924
+msgid "Nothing found in trash"
+msgstr "Šiukšliadėžėje nerasta"
+

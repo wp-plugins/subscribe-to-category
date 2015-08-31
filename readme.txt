@@ -2,8 +2,8 @@
 Contributors: dansod
 Tags: subscribe to post, subscribe to category, subscribe to news, subscribe
 Requires at least: 3.9
-Tested up to: 4.2.3
-Stable tag: 1.2.1
+Tested up to: 4.3
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,7 @@ The following settings and features are available for the administrator in curre
 * English
 * French
 * Italian
+* Lithuanian
 * Russian
 * Spanish
 * Swedish
@@ -55,6 +56,41 @@ This section describes how to install the plugin and get it working.
 
 For both attributes you can use a comma sign to separate multiple categories, like [stc-subscribe category_in="news, article"].
 
+= Filter and hooks =
+Following filters and hooks can be used for customizing the email message.
+
+`<?php
+// FILTERS
+// Parameters: $value
+add_filter( 'stc_message_length_sum_of_words', 'stc_message_length_sum_of_words', 10, 1 ); //set return value to a negative number to show the full content
+
+
+// Parameters: $value, $post_id, $subscriber_post_id
+add_filter( 'stc_message_title_html', 'my_stc_message_title_html', 10, 3 );
+add_filter( 'stc_message_link_to_post_html', 'my_stc_message_link_to_post_html', 10, 3 );
+add_filter( 'stc_message_unsubscribe_html', 'my_stc_message_unsubscribe_html', 10, 3 );
+
+// HOOKS
+// Parameters: $post_id, $subscriber_post_id  
+add_action( 'stc_before_message', 'my_stc_before_message', 10, 2 );
+add_action( 'stc_before_message_title', 'my_stc_before_message_title', 10, 2 );
+add_action( 'stc_after_message_title', 'my_stc_after_message_title', 10, 2 );
+add_action( 'stc_before_message_content', 'my_stc_before_message_content', 10, 2 );
+add_action( 'stc_after_message_content', 'my_stc_after_message_content', 10, 2 );
+add_action( 'stc_after_message', 'my_stc_after_message', 10, 2 );
+
+
+/**
+ * Example for adding featured image to STC email
+ */
+function my_stc_after_message_title( $post_id ){
+	echo get_the_post_thumbnail( $post_id, 'thumbnail' );
+}
+add_action( 'stc_after_message_title', 'my_stc_after_message_title', 10, 2 );
+
+?>`
+
+
 = Optionally but recommended =
 As Wordpress Cron is depending on that you have visits on your website you should set up a cron job on your server to hit http://yourdomain.com/wp-cron.php at a regular interval to make sure that WP Cron is running as expected. In current version of Subscribe to Category the WP Cron is running once every hour, that might be an option that is changeable in future versions. 
 Therefore a suggested interval for your server cron could be once every 5 minutes. 
@@ -67,6 +103,10 @@ Therefore a suggested interval for your server cron could be once every 5 minute
 4. When resend post is enabled in settings there is a new option available when editing a post.
 
 == Changelog ==
+
+= 1.3 =
+* Added hooks and filters to make the plugin extensible
+* Added Lithuanian language thanks to Claudio
 
 = 1.2.1 =
 * Fixed some undefined variables that might have caused some errors for some environments
